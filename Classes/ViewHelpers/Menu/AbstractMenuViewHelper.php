@@ -297,7 +297,7 @@ abstract class AbstractMenuViewHelper extends AbstractTagBasedViewHelper
         $itemsRendered = 0;
         $numberOfItems = count($menu);
         foreach ($menu as $page) {
-            if ($page['current'] && !$showCurrent) {
+            if (isset($page['current']) && $page['current'] && !$showCurrent) {
                 continue;
             }
             $class = (trim($page['class']) !== '') ? ' class="' . trim($page['class']) . '"' : '';
@@ -352,7 +352,7 @@ abstract class AbstractMenuViewHelper extends AbstractTagBasedViewHelper
     protected function renderItemLink(array $page)
     {
         $isSpacer = ($page['doktype'] === $this->pageService->readPageRepositoryConstant('DOKTYPE_SPACER'));
-        $isCurrent = (boolean) $page['current'];
+        $isCurrent = isset($page['current']);;
         $isActive = (boolean) $page['active'];
         $linkCurrent = (boolean) $this->arguments['linkCurrent'];
         $linkActive = (boolean) $this->arguments['linkActive'];
