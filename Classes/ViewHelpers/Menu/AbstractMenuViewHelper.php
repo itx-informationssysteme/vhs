@@ -352,8 +352,8 @@ abstract class AbstractMenuViewHelper extends AbstractTagBasedViewHelper
     protected function renderItemLink(array $page)
     {
         $isSpacer = ($page['doktype'] === $this->pageService->readPageRepositoryConstant('DOKTYPE_SPACER'));
-        $isCurrent = isset($page['current']);;
-        $isActive = (boolean) $page['active'];
+        $isCurrent = isset($page['current']);
+        $isActive = isset($page['active']);
         $linkCurrent = (boolean) $this->arguments['linkCurrent'];
         $linkActive = (boolean) $this->arguments['linkActive'];
         $includeAnchorTitle = (boolean) $this->arguments['includeAnchorTitle'];
